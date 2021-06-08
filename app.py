@@ -2,7 +2,6 @@ from flask import Flask, jsonify, request
 from newspaper import Article
 from date_guesser import guess_date, Accuracy
 from langdetect import detect, detect_langs
-import json
 
 
 app = Flask(__name__)
@@ -74,13 +73,13 @@ def get_article():
         article_dict['article']['title_lang'] = str(title_lang)
         article_dict['article']['text_lang'] = str(text_lang)
         article_dict['article']['meta_favicon'] = article.meta_favicon
-        return json.dumps(article_dict)
+        return jsonify(article_dict)
 
     else:
         article_dict = {}
         article_dict['status'] = 'error'
         article_dict['article'] =  article.download_exception_msg
-        return json.dumps(article_dict)
+        return jsonify(article_dict)
 
 
 if __name__ == '__main__':
