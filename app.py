@@ -73,12 +73,14 @@ def get_article():
         article_dict['article']['title_lang'] = str(title_lang)
         article_dict['article']['text_lang'] = str(text_lang)
         article_dict['article']['meta_favicon'] = article.meta_favicon
+        print(article_dict)
         return jsonify(article_dict)
 
     else:
         article_dict = {}
         article_dict['status'] = 'error'
         article_dict['article'] =  article.download_exception_msg
+        print(article_dict)
         return jsonify(article_dict)
 
 
