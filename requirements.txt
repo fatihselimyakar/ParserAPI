@@ -1,4 +1,4 @@
-gunicorn
+gunicorn==0.14.2
 argcomplete==1.11.1
 arrow==0.15.5
 beautifulsoup4==4.9.0
